@@ -6,4 +6,4 @@
 
 书籍对应代码和数据：https://www.econometrics-stata.com/
 
-如果无法渲染出 Markdown 里的公式，请下载 PDF。
+使用 [Typora](https://typora.io/) 撰写，如果无法渲染出 Markdown 里的公式，请下载 PDF。
