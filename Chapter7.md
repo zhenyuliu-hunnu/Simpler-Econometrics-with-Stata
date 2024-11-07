@@ -4,7 +4,7 @@
 
 扰动项$\epsilon$的方差$\text{Var}(\epsilon_i|X)$不是常数，而是依赖于i。
 
-![img](./7_1.png)
+![img](./images/7_1.png)
 
 ## 异方差的后果
 
@@ -100,17 +100,18 @@ rvfplot lnq // 绘制残差和解释变量的散点图
 estat imtest, white
 ```
 
-estat 指估计后统计量（post-estimated statistics），imtest 指 information matrix test。假设所有检验依赖前置 reg 命令。
+estat 指估计后统计量（post-estimated statistics），imtest 指 information matrix test。==所有假设检验依赖前置 reg 命令。==
 
 BP 检验
 
 ```stata
 estat hettest, iid // 使用默认拟合值 y
-estat hettest, rhs iid // 使用 rhs 的解释变量
+estat hettest, rhs iid
 ```
 
 - estat hettest 是异方差检验的命令
 - iid （可选）是指假定独立同分布，不同于前面介绍的$\varepsilon_i$服从正态分布，实践中常用
+- rhs (right-hand side) 表示使用自变量的高次项进行检验
 
 
 
@@ -121,7 +122,7 @@ estat hettest, rhs iid // 使用 rhs 的解释变量
 ```stata
 quietly reg lntc lnq lnpl lnpk lnpf
 predict e1, res // 计算残差并存储到变量 e1，详见第五章
-g e2 = e1^2 //g 是 generate 的缩写，这是 Stata 中用来创建新变量的命令。
+g e2 = e1^2 //g 是 generate 的缩写，这是 Stata 中用来创建新「变量」（数据列）的命令，e2 会添加到右边变量窗口。
 g lne2 = log(e2)
 ```
 

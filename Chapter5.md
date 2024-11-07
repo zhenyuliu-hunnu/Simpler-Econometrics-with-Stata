@@ -88,13 +88,13 @@ $$\ln w=\beta_{1} +\beta_{2} s+\beta_{3} \text{expr} +\beta_{4} \text{tenure} +\
 reg lnw s expr tenure smsa rns //... 先做线性回归
 ```
 
-![5_12_1](./5_12_1.png)
+![5_12_1](./images/5_12_1.png)
 
 ```stata
 vce // variance convariance matrix estimated 协方差矩阵
 ```
 
-![vce](./5_12_2.png)
+![vce](./images/5_12_2.png)
 
 ```stata
 reg lnw s expr tenure smsa if rns // 删掉 rns 为 0 的行进行回归
@@ -110,7 +110,7 @@ quietly reg lnw s expr tenure smsa rns // 不输出回归结果，以便后面�
 test s=0.1
 ```
 
-返回 F（1，752）和 p-value
+返回 F（1, 752）和 p-value
 
 又检验 expr-tenure = 0
 
