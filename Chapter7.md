@@ -6,6 +6,11 @@
 
 ![img](./images/7_1.png)
 
+计量回归模型 $\mathbf{y}=\mathbf{\beta X}+\mathbf{u}$ 中应出现的方差形式：
+$$\mathrm{Var}(\boldsymbol{u}\mid\boldsymbol{X})=\sigma^2\boldsymbol{I}_N=\begin{pmatrix}\sigma^2&0&\cdots&0\\0&\sigma^2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\sigma^2\end{pmatrix}$$
+
+异方差情况下的方差形式（暂时不考虑[[Chapter8|自相关]]）：
+$$\mathrm{Var}(\boldsymbol{u}\mid\boldsymbol{X})=\sigma^2\boldsymbol{I}_N=\begin{pmatrix}\sigma_1^2&0&\cdots&0\\0&\sigma_2^2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\sigma_N^2\end{pmatrix}$$
 ## 异方差的后果
 
 1. OLS 估计量依然无偏、一致且正态
@@ -46,7 +51,7 @@
 
 ## 异方差处理
 
-实操中一般不用GLS，而用OLS+稳健标准误。如果被解释变量取值为正，可以尝试通过**取对数**来缓解异方差的问题。
+实操中一般不用GLS，而用OLS+[[Chapter5_Adv#^a30179|稳健标准误]]，采用White（1980）提出的异方差稳健调整公式。如果被解释变量取值为正，可以尝试通过**取对数**来缓解异方差的问题。
 
 
 
